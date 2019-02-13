@@ -8,9 +8,38 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
+        <local:Student x:Key="localStudent"
+                       Name="Tom Smith"
+                       StudentNumber="s1234567"
+                       Email="s1234567@mail.itsligo.ie"
+                       PhoneNumber="086 123 4567">            
+        </local:Student>
         
     </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Style="{StaticResource stackPanelLabels}">
+            <Label Content="Name:" Style="{StaticResource LabelStyle1}"/>
+            <Label Content="Student number:" Style="{StaticResource LabelStyle1}"/>
+            <Label Content="Email:" Style="{StaticResource LabelStyle1}"/>
+            <Label Content="Phone number:" Style="{StaticResource LabelStyle1}"/>
+        </StackPanel>
+        <StackPanel Style="{StaticResource stackPanelTextBlocks}">
+            <TextBlock x:Name="tblkName" Text="{Binding Path=Name, Source={StaticResource localStudent}, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+            <TextBlock x:Name="tblkstudentNumber" Text="{Binding Path=StudentNumber, Source={StaticResource localStudent}, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+            <TextBlock x:Name="tblkEmail" Text="{Binding Path=Email, Source={StaticResource localStudent}, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+            <TextBlock x:Name="tblkPhone" Text="{Binding Path=PhoneNumber, Source={StaticResource localStudent}, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+        </StackPanel>
     </Grid>
 </Window>
