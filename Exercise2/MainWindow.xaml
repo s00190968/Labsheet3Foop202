@@ -6,6 +6,15 @@
         xmlns:local="clr-namespace:Exercise2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="imageTemplate">
+            <StackPanel Style="{StaticResource stackPanelImages}">
+                <Image Source="{Binding Path=BandImage}" Style="{StaticResource lbxImageStyle}"/>
+                <TextBlock Text="{Binding Path=Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -16,11 +25,11 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ListBox Style="{StaticResource LbxStyle}" Grid.Column="0" Grid.Row="0"/>
-        <ListBox Style="{StaticResource LbxStyle}" Grid.Column="1" Grid.Row="0"/>
+        <ListBox x:Name="bandsLbx" ItemTemplate="{StaticResource imageTemplate}" Style="{StaticResource LbxStyle}" Grid.Column="0" Grid.Row="0"/>
+        <ListBox ItemTemplate="{StaticResource imageTemplate}" Style="{StaticResource LbxStyle}" Grid.Column="1" Grid.Row="0"/>
 
-        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Content="Load" Style="{StaticResource btnStyle}"/>
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource stackPanelCenter}">
+            <Button Content="Load" Style="{StaticResource btnStyle}" Click="Button_Click"/>
             <Button Content="Save" Style="{StaticResource btnStyle}"/>
             <Button Content="Add" Style="{StaticResource btnStyle}"/>
             <Button Content="Delete" Style="{StaticResource btnStyle}"/>

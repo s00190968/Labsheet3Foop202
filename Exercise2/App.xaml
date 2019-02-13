@@ -19,5 +19,29 @@
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="3"/>
         </Style>
+
+        <Style x:Key="lbxImageStyle" TargetType="Image">
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="Fant"/>
+            <!--<Setter Property="Stretch" Value="Fill"/>-->
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="stackPanelCenter" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="stackPanelImages" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="auto"/>
+        </Style>
+
     </Application.Resources>
 </Application>
