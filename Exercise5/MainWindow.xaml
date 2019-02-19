@@ -1,0 +1,41 @@
+﻿<Window x:Class="Exercise5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercise5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:Student x:Key="localStudent"></local:Student>
+
+    </Window.Resources>
+    <Grid Name="MainGrid" DataContext="{StaticResource localStudent}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Style="{StaticResource stackPanelLabels}">
+            <Label Content="Name:" Style="{StaticResource LabelStyle1}"/>
+            <Label Content="Student number:" Style="{StaticResource LabelStyle1}"/>
+            <Label Content="Email:" Style="{StaticResource LabelStyle1}"/>
+            <Label Content="Phone number:" Style="{StaticResource LabelStyle1}"/>
+        </StackPanel>
+        <StackPanel Style="{StaticResource stackPanelTextBlocks}">
+            <TextBlock x:Name="tblkName" Text="{Binding Path=Name, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+            <TextBlock x:Name="tblkstudentNumber" Text="{Binding Path=StudentNumber, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+            <TextBlock x:Name="tblkEmail" Text="{Binding Path=Email, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+            <TextBlock x:Name="tblkPhone" Text="{Binding Path=PhoneNumber, Mode=OneWay}" Style="{StaticResource TextBlockStyle1}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
