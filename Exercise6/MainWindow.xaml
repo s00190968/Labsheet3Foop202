@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Exercise6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Name="MainGrid" DataContext="{StaticResource localBook}">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="249*"/>
             <RowDefinition Height="170*"/>
@@ -16,12 +16,12 @@
             <ColumnDefinition Width="185*"/>
             <ColumnDefinition Width="238*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="BooksLBx" HorizontalAlignment="Left" Height="296" Margin="57,57,0,0" VerticalAlignment="Top" Width="254" Grid.RowSpan="2"/>
-        <TextBox x:Name="BookDescritpionTxBx" Grid.Column="1" HorizontalAlignment="Left" Height="126" Margin="84,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="BookTitleTxBl" Grid.Column="1" HorizontalAlignment="Left" Margin="84,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="priceInreaseBtn" Content="Increase price" Grid.Column="2" HorizontalAlignment="Left" Margin="117,74,0,0" Grid.Row="1" VerticalAlignment="Top" Width="auto" Height="30"/>
-        <Button x:Name="priceDecreaseBtn" Content="Decrease price" Grid.Column="2" HorizontalAlignment="Left" Margin="117,119,0,0" Grid.Row="1" VerticalAlignment="Top" Width="auto" Height="30"/>
-        <TextBlock x:Name="PriceTxBl" Grid.Column="1" HorizontalAlignment="Left" Margin="84,74,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ListBox x:Name="BooksLBx" HorizontalAlignment="Left" Height="296" Margin="57,57,0,0" VerticalAlignment="Top" Width="254" Grid.RowSpan="2" SelectionChanged="BooksLBx_SelectionChanged" DisplayMemberPath="Name"/>
+        <TextBox x:Name="BookDescritpionTxBx" Text="{Binding Path=Description, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Left" Height="126" Margin="84,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="BookTitleTxBl" Text="{Binding Path=Name, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Left" Margin="84,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="priceInreaseBtn" Content="Increase price" Grid.Column="2" HorizontalAlignment="Left" Margin="117,74,0,0" Grid.Row="1" VerticalAlignment="Top" Width="auto" Height="30" Click="priceInreaseBtn_Click"/>
+        <Button x:Name="priceDecreaseBtn" Content="Decrease price" Grid.Column="2" HorizontalAlignment="Left" Margin="117,119,0,0" Grid.Row="1" VerticalAlignment="Top" Width="auto" Height="30" Click="priceDecreaseBtn_Click"/>
+        <TextBlock x:Name="PriceTxBl" Text="{Binding Path=Price, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Left" Margin="84,74,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
